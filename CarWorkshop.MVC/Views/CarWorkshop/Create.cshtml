@@ -1,0 +1,40 @@
+﻿
+<h1>Create Car Workshop</h1>
+<hr />
+
+<div class="row">
+    <div class="col-md-4">
+       @*Action wskaże dla jakiej metody chcemy przesłać informacje z formularza  *@
+        <form action="/CarWorkshop/Create" method="post">
+            @*klase sobie nazywamy jak chcemy*@
+            <div class="form-group mb-3">
+
+                <label class="control-label" for="Name">Name</label>
+                @*Ważne żeby wartość w name="" odpowiadała wartościom z backendu*@
+                <input class="form-control" type="text" id="Name" name="Name">
+
+                <label class="control-label" for="Description">Description</label>
+                <input class="form-control" type="text" id="Description" name="Description">
+                
+                @*Teraz contanct details to nie jest  osobna tabela więc nie trzeba dodawać
+                    ContactDetails. przed odwołaniem się do pola
+                *@
+                <label class="control-label" for="City">City</label>
+                <input class="form-control" type="text" id="City" name="City">
+
+                <label class="control-label" for="PostalNumber">Postal Number</label>
+                <input class="form-control" type="text" id="PostalNumber" name="PostalNumber">
+
+                <label class="control-label" for="Street">Street</label>
+                <input class="form-control" type="text" id="Street" name="Street">
+
+                <label class="control-label" for="PhoneNumber">Phone Number</label>
+                <input class="form-control" type="text" id="PhoneNumber" name="PhoneNumber">
+            </div>
+            <div class="form-group mb-3">
+                <input type="submit" value="Crate" class="btn btn-primary"/>
+            </div>
+        </form>
+
+    </div>
+</div>
