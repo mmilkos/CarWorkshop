@@ -3,6 +3,7 @@ using CarWorkshop.Infrastructure.Presistence;
 using CarWorkshop.Infrastructure.Seeders;
 using Microsoft.EntityFrameworkCore;
 using CarWorkshop.Aplication.Extensions;
+using Microsoft.Extensions.DependencyInjection;
 
 var builder = WebApplication.CreateBuilder(args);
 

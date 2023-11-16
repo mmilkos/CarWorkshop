@@ -14,13 +14,15 @@ namespace CarWorkshop.MVC.Controllers
         [HttpPost]
         public async Task<IActionResult> Create(CarWorkshopDto carWorkshop) 
         {
+            if (ModelState.IsValid == false) 
+            {
+                return View();
+            }
             await _carWorkshopService.Create(carWorkshop);
-            //nie mamy aktualnie żadnego widoku dlatego tymczasowo przekierujemy akcje
-            //gdy dodamy później widoki to wrócimy do konkretnego redirect
             return RedirectToAction(nameof(Create));
         }
 
-        public ActionResult Create() 
+        public IActionResult Create() 
         {
             return View();
         }

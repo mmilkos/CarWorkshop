@@ -25,6 +25,7 @@ namespace CarWorkshop.Infrastructure.Extensions
             services.AddDbContext<CarWorkshopDbContext>(options => options.UseSqlServer(conectionString));
             
             services.AddScoped<ICarWorkshopRepository, CarWorkshopRepository>();
+            services.AddScoped<CarWorkshopSeeder>();
         }
     }
 }
