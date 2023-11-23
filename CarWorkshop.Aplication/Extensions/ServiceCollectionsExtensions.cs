@@ -1,6 +1,7 @@
 ﻿
-using CarWorkshop.Aplication.Services;
+using CarWorkshop.Aplication.CarWorkshop.Commands.createWorkshop;
 using CarWorkshop.Application.Mappings;
+using MediatR;
 using Microsoft.Extensions.DependencyInjection;
 using System;
 using System.Collections.Generic;
@@ -14,7 +15,7 @@ namespace CarWorkshop.Aplication.Extensions
     {
         public static void AddAplication(this IServiceCollection services) 
         {
-            services.AddScoped<ICarWorkshopService, CarWorkshopService>();
+            services.AddMediatR(typeof(CreateCarWorkshopCommand));
 
             services.AddAutoMapper(typeof(CarWorkshopMappingProfile));
         }

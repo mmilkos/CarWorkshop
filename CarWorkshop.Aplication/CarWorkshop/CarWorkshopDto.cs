@@ -6,10 +6,11 @@ using System.ComponentModel.DataAnnotations;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using MediatR;
 
 namespace CarWorkshop.Aplication.CarWorkshop
 {
-    public class CarWorkshopDto
+    public class CarWorkshopDto : IRequest
     {
         [Required(ErrorMessage = "Please insert name")]
         [StringLength(20, MinimumLength = 2, ErrorMessage ="Minimum name length is 2 characters")]

@@ -1,27 +1,10 @@
-﻿@model List<Person>
-@{
-    ViewData["Title"] = "Home Page";
-    var currentDay = DateTime.Now.Date.ToString("dd/MM/yyyy");
-    var dayOfWeek = DateTime.Now.DayOfWeek;
-}
+﻿
 
 <div class="text-center">
     <h1 class="display-4">Welcome</h1>
     <p>Learn about <a href="https://docs.microsoft.com/aspnet/core">building Web apps with ASP.NET Core</a>.</p>
-    <p>@currentDay</p>
+    
 
-    @if (dayOfWeek == DayOfWeek.Saturday || dayOfWeek == DayOfWeek.Sunday)
-    {
-        <p>Jest weekend!</p>
-    }
-    else
-    {
-        <p>Nie ma weekendu </p>
-    }
+    
 </div>
 
-@foreach(var person in Model)
-{
-    <p>@person.Name </p>   
-    <p>@person.LastName </p>   
-}

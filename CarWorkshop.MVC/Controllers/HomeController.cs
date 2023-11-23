@@ -15,21 +15,7 @@ public class HomeController : Controller
 
     public IActionResult Index()
     {
-        var model = new List<Person>()
-        {
-            new Person()
-            {
-                Name = "Mateusz",
-                LastName = "Miłkowski",
-            },
-
-            new Person()
-            {
-                Name = "Jan",
-                LastName = "Kowalski",
-            },
-        };
-        return View(model);
+        return View();
     }
 
     public IActionResult Privacy()
@@ -39,14 +25,8 @@ public class HomeController : Controller
 
     public IActionResult About() 
     {
-        var model = new About() 
-        {
-            Title = "Strona about",
-            Description = "Strona na której testuje",
-            Tags = new List<string>() {"Test", "Strona"}
-
-        };
-        return View(model);
+ 
+        return View();
     }
 
     [ResponseCache(Duration = 0, Location = ResponseCacheLocation.None, NoStore = true)]

@@ -1,15 +1,15 @@
 ﻿using CarWorkshop.Aplication.CarWorkshop;
-
+using MediatR;
 using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace CarWorkshop.Aplication.Services
+namespace CarWorkshop.Aplication.Queries
 {
-    public interface ICarWorkshopService
+    public class GetAllCarWorkshopQuery : IRequest<IEnumerable<CarWorkshopDto>>
     {
-        Task Create(CarWorkshopDto carWorkshopDto);
+
     }
 }
