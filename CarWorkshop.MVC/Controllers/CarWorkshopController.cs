@@ -3,20 +3,21 @@ using CarWorkshop.Aplication.CarWorkshop;
 using MediatR;
 using CarWorkshop.Aplication.Queries;
 using CarWorkshop.Aplication.CarWorkshop.Commands.createWorkshop;
+using CarWorkshop.Aplication.CarWorkshop.Queries.GetCarWorkshopByEncodedName;
 
 namespace CarWorkshop.MVC.Controllers
 {
-    public class CarWorkshopController: Controller 
+    public class CarWorkshopController : Controller
     {
         private readonly IMediator _mediator;
-        public CarWorkshopController(IMediator mediator) 
+        public CarWorkshopController(IMediator mediator)
         {
             _mediator = mediator;
         }
         [HttpPost]
-        public async Task<IActionResult> Create(CreateCarWorkshopCommand command) 
+        public async Task<IActionResult> Create(CreateCarWorkshopCommand command)
         {
-            if (ModelState.IsValid == false) 
+            if (ModelState.IsValid == false)
             {
                 return View(command);
             }
@@ -24,12 +25,18 @@ namespace CarWorkshop.MVC.Controllers
             return RedirectToAction(nameof(Index));
         }
 
-        public IActionResult Create() 
+        [Route("CarWorkshop/{encodedName}/Details")]
+        public async Task<IActionResult> Details(string encodedName)
+        {
+            var dto = await _mediator.Send(new GetCarWorkshopByEncodedNameQuery(encodedName));
+            return View(dto);
+        }
+
+        public IActionResult Create()
         {
             return View();
         }
-        //
-        public async Task<IActionResult> Index() 
+        public async Task<IActionResult> Index()
         {
             var carWorksops = await _mediator.Send(new GetAllCarWorkshopQuery());
             return View(carWorksops);
@@ -37,4 +44,6 @@ namespace CarWorkshop.MVC.Controllers
         }
 
     }
+
+    
 }
